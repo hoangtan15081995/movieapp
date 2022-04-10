@@ -6,7 +6,7 @@ import "./MainFooter.css";
 function MainFooter() {
   return (
     <Stack spacing={2} className="footer">
-      <Pagination count={10} />
+      <Pagination count={10} color="primary" />
     </Stack>
   );
 }

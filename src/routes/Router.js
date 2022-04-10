@@ -11,7 +11,7 @@ function Router() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
       </Route>
       <Route element={<BlankLayout />}>
         <Route path="*" element={<NotFoundPage />} />
