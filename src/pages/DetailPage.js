@@ -7,7 +7,6 @@ function DetailPage() {
       sx={{
         minHeight: "100vh",
         backgroundColor: "#39445a",
-        // justifyContent: "center",
         alignItems: "center",
       }}
     >

@@ -22,7 +22,9 @@ function MovieContextProvider({ Children }) {
     getMovies();
   }, []);
   return (
-    <MovieContext.Provider value={movies}>{Children}</MovieContext.Provider>
+    <MovieContext.Provider value={{ movies, response }}>
+      {Children}
+    </MovieContext.Provider>
   );
 }
 

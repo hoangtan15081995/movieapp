@@ -1,7 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
-import MainFooter from "./mainFooter/MainFooter";
 import MainHeader from "./mainHeader/MainHeader";
 
 function MainLayout() {
@@ -17,7 +16,6 @@ function MainLayout() {
         <Outlet />
         <Box sx={{ flexGrow: 1 }} />
       </Stack>
-      <MainFooter />
     </Stack>
   );
 }
