@@ -30,6 +30,9 @@ function MainHeader() {
         <NavLink to="/trending">
           <Typography sx={{ color: "white", ml: "50px" }}>Trending</Typography>
         </NavLink>
+        <NavLink to="/tv">
+          <Typography sx={{ color: "white", ml: "50px" }}>TV</Typography>
+        </NavLink>
       </span>
     </>
   );

@@ -6,6 +6,7 @@ import DetailPage from "../pages/DetailPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import TrendingPage from "../pages/TrendingPage";
+import TvPage from "../pages/TvPage";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/trending" element={<TrendingPage />} />
+        <Route path="/tv" element={<TvPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
       </Route>
       <Route element={<BlankLayout />}>
