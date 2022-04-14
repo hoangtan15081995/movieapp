@@ -28,6 +28,7 @@ function HomePage() {
       <MoviesList movies={movies} />
       <Stack spacing={2} m="auto" my="25px">
         <Pagination
+          onClick={() => window.scroll(0, 0)}
           count={pageCount}
           page={page}
           onChange={(e, value) => setPage(value)}

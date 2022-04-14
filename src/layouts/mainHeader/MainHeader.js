@@ -1,29 +1,19 @@
-import { TextField, Box, Button, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import * as React from "react";
 import { NavLink } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
 import "./MainHeader.css";
 
 function MainHeader() {
   return (
     <>
-      <span className="header">
-        <Box
-          sx={{
-            width: 500,
-            maxWidth: "100%",
-            ml: "50px",
-          }}
-        >
-          <TextField
-            className="textField"
-            fullWidth
-            label="Search movie"
-            id="fullWidth"
-          />
-        </Box>
-        <Button sx={{ height: "57px" }} variant="contained">
-          Search
-        </Button>
+      <span onClick={() => window.scroll(0, 0)} className="header">
+        <NavLink to="/search">
+          <Button sx={{ height: "57px" }} variant="contained">
+            <SearchIcon />
+          </Button>
+        </NavLink>
+
         <NavLink to="/">
           <Typography sx={{ color: "white", ml: "50px" }}>Home</Typography>
         </NavLink>
