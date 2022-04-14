@@ -1,13 +1,15 @@
 import * as React from "react";
-import { Box, Button, Pagination, Stack, TextField } from "@mui/material";
+import { Pagination, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import MoviesList from "../components/MoviesList";
 import { API_KEY, BASE_URL } from "../data/config";
 import apiService from "../data/apiService";
-import { NavLink } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function SearchPage() {
-  const [search, setSearch] = useState("");
+  const { register, handleSubmit } = useForm();
+  const [search, setSearch] = useState("spiderman");
+  const onSubmit = (data) => setSearch(data.search);
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
@@ -15,7 +17,7 @@ function SearchPage() {
     const getMovies = async () => {
       try {
         const response = await apiService.get(
-          `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US`
+          `${BASE_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${search}&page=${page}&include_adult=false`
         );
         setMovies(response.data.results);
         setPageCount(response.data.total_pages);
@@ -25,34 +27,15 @@ function SearchPage() {
       }
     };
     getMovies();
-  }, [search, page]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(search);
-  };
+  }, [page, search]);
   return (
     <>
-      <Box
-        sx={{
-          width: 800,
-          maxWidth: "100%",
-          ml: "50px",
-        }}
-      >
-        <form onSubmit={handleSubmit} style={{ display: "flex" }}>
-          <TextField
-            className="textField"
-            fullWidth
-            label="Search movie"
-            id="fullWidth"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-
-          <Button type="submit" sx={{ height: "57px" }} variant="contained">
-            Search
-          </Button>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input {...register("search")} />
+          <input type="submit" />
         </form>
-      </Box>
+      </div>
       <MoviesList movies={movies} />
       <Stack spacing={2} m="auto" my="25px">
         <Pagination
